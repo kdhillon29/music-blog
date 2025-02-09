@@ -11,17 +11,17 @@ const userEmail = Astro.cookies.get("userEmail");
   <a href="/" class="flex gap-x-4 items-center">
     <Image
       src="/heartbeat.png"
-      alt="rhythm nation logo"
+      alt="country music blog logo"
       width={64}
       height={64}
       format="webp"
       class="w-16"
     />
 
-    <p class="uppercase text-3xl text-zinc-900">blog</p>
+    <p class="uppercase text-3xl text-zinc-900">country music blog</p>
   </a>
-  <div class="flex px-6 gap-12 max-sm:hidden">
-    <HeaderLink href="/">Home</HeaderLink>
+  <div class="flex px-6 gap-12 max-sm:inline-flex">
+    <!-- <HeaderLink href="/">Home</HeaderLink> -->
     <HeaderLink href="/blog">Blog</HeaderLink>
     <HeaderLink href="/about">About</HeaderLink>
   </div>
