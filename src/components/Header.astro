@@ -6,7 +6,7 @@ const userEmail = Astro.cookies.get("userEmail");
 ---
 
 <header
-  class="flex justify-between items-center md:p-12 max-sm:px-5 max-sm:py-10 max-w-7xl justify-self-center w-full"
+  class="flex justify-between items-center md:px-12 max-sm:px-5 max-sm:py-10 max-w-7xl justify-self-center w-full"
 >
   <a href="/" class="flex max-sm:flex-col items-center">
     <Image
@@ -22,13 +22,15 @@ const userEmail = Astro.cookies.get("userEmail");
       music blog
     </p>
   </a>
-  <div class="flex max-sm:mx-auto md:px-6 gap-5 max-sm:inline-flex">
-    <!-- <HeaderLink href="/">Home</HeaderLink> -->
+  <div
+    class="flex justify-between items-center md:text-xl px-3 md:px-6 gap-6 md:gap-12 max-sm:inline-flex"
+  >
+    <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/blog">Blog</HeaderLink>
     <HeaderLink href="/about">About</HeaderLink>
   </div>
 
-  {
+  <!-- {
     userEmail?.value ? (
       <a
         href="/logout"
@@ -44,5 +46,5 @@ const userEmail = Astro.cookies.get("userEmail");
         Login
       </a>
     )
-  }
+  } -->
 </header>
