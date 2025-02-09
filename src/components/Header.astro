@@ -6,9 +6,9 @@ const userEmail = Astro.cookies.get("userEmail");
 ---
 
 <header
-  class="flex justify-between items-center px-12 py-12 max-sm:px-5 max-sm:py-10 max-w-7xl justify-self-center w-full"
+  class="flex justify-between items-center md:p-12 max-sm:px-5 max-sm:py-10 max-w-7xl justify-self-center w-full"
 >
-  <a href="/" class="flex gap-x-4 items-center">
+  <a href="/" class="flex max-sm:flex-col items-center">
     <Image
       src="/heartbeat.png"
       alt="country music blog logo"
@@ -18,9 +18,11 @@ const userEmail = Astro.cookies.get("userEmail");
       class="w-16"
     />
 
-    <p class="uppercase text-3xl text-zinc-900">country music blog</p>
+    <p class="uppercase text-3xl max-sm:text-xl font-bold text-teal-700">
+      music blog
+    </p>
   </a>
-  <div class="flex px-6 gap-12 max-sm:inline-flex">
+  <div class="flex max-sm:mx-auto md:px-6 gap-5 max-sm:inline-flex">
     <!-- <HeaderLink href="/">Home</HeaderLink> -->
     <HeaderLink href="/blog">Blog</HeaderLink>
     <HeaderLink href="/about">About</HeaderLink>
