@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
+import Layout from "../../layouts/Layout.astro";
 import { render } from "astro:content";
 import Main from "../../components/Main.astro";
 import H1 from "../../components/H1.astro";
@@ -19,7 +19,7 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost title={post.data.title} description={post.slug}>
+<Layout title={post.data.title} description={post.slug}>
   <Main>
     <H1 text={post.data.title} />
     <Image
@@ -35,4 +35,4 @@ const { Content } = await render(post);
       <Content />
     </div>
   </Main>
-</BlogPost>
+</Layout>

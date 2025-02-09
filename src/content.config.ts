@@ -1,8 +1,9 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { format } from "date-fns";
 
 const blog = defineCollection({
+  // type: "content",
   // Load Markdown and MDX files in the `src/content/blog/` directory.
   loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
   // Type-check frontmatter using a schema
@@ -25,9 +26,12 @@ const authorsCollection = defineCollection({
 });
 
 const postsCollection = defineCollection({
+  type: "content",
+  // Load Markdown and MDX files in the `src/content/blog/` directory.
+  //   loader: glob({ base: "./src/content/posts", pattern: "**/*.{md,mdx}" }),
   schema: ({ image }) =>
     z.object({
-      author: z.string(),
+      author: reference("authors"),
       categories: z.array(z.string()),
       date: z
         .string()

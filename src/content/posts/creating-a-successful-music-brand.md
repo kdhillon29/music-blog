@@ -1,5 +1,5 @@
 ---
-author: pam-beesely
+author: Ken Dhillon
 categories: ["career advice"]
 date: 08/10/2021
 featured: false
