@@ -18,6 +18,7 @@ import PostList from "../../components/PostList.astro";
 
 export const prerender = true;
 const posts = await getCollection("posts");
+console.log(posts[0].data.image);
 ---
 
 <Layout title="Blog|Country Music" description="welcome to country music blog">
