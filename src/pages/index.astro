@@ -8,6 +8,8 @@ import CategoryList from "../components/CategoryList.astro";
 import Main from "../components/Main.astro";
 import H1 from "../components/H1.astro";
 
+export const prerender = true;
+
 const allPosts = await getCollection("posts");
 const featuredPosts = allPosts.filter((post) => post.data.featured);
 const posts = allPosts.filter((post) => !post.data.featured).slice(0, 4);
