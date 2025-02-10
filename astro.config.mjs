@@ -12,7 +12,7 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
-  output: "static",
+  output: "server",
   integrations: [mdx(), sitemap(), db()],
 
   vite: {

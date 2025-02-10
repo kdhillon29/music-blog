@@ -16,6 +16,7 @@ import PostList from "../../components/PostList.astro";
 // 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 // );
 
+export const prerender = true;
 const posts = await getCollection("posts");
 ---
 
