@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { z } from "astro/zod";
 
 import { db, Subscribe, isDbError } from "astro:db";
 
@@ -25,10 +26,17 @@ export const POST: APIRoute = async (ctx) => {
   try {
     const formData = await ctx.request.formData();
     const email = formData.get("email") as string;
-    if (!email) {
-      return new Response(JSON.stringify({ error: "Email is required" }), {
-        status: 400,
-      });
+    const NewsletterSchema = z.object({
+      email: z.string().email("Invalid email format"),
+    });
+    // safeParse returns a result
+    const result = NewsletterSchema.safeParse({ email });
+    if (!result.success) {
+      console.log(result.error.errors[0].message);
+      return ctx.redirect(
+        `/newsletter/failure?message= Invalid email format ${result.error.errors[0].message}`,
+        307
+      );
     }
     const subscriber = await db.insert(Subscribe).values({ email }).returning();
     return ctx.redirect("/newsletter/success", 307);
