@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import CategoryList from "./CategoryList.astro";
 import { prefetch } from "astro:prefetch";
 import { render } from "astro:content";
+import PostMeta from "./PostMeta.astro";
 
 type Props = {
   post: CollectionEntry<"posts">;
@@ -39,7 +40,7 @@ const author = await getEntry("authors", post.data.author.id);
 
   <a
     href={`/blog/${post.slug}`}
-    class="text-xl md:text-2xl text-zinc-900 mb-1 font-semibold inline-block"
+    class="text-lg md:text-xl text-zinc-700 mb-1 font-semibold inline-block"
   >
     {post.data.title}
   </a>
@@ -48,7 +49,9 @@ const author = await getEntry("authors", post.data.author.id);
     {post.body}
   </p>
 
-  <div class="flex justify-between items-center">
+  {author && <PostMeta post={post} />}
+
+  <!-- <div class="flex justify-between items-center">
     {
       author ? (
         <a
@@ -63,5 +66,5 @@ const author = await getEntry("authors", post.data.author.id);
     <span class="text-zinc-700 text-xl">
       {post.data.date}
     </span>
-  </div>
+  </div> -->
 </article>

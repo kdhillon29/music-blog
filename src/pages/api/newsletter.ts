@@ -50,7 +50,7 @@ export const POST: APIRoute = async (ctx) => {
     if (isDbError(error)) {
       if (error?.code === "SQLite_Constraint".toUpperCase()) {
         return ctx.redirect(
-          "/newsletter/failure?message=Email must be unique",
+          "/newsletter/failure?message=Error: Email already exists in our records",
           307
         );
       }

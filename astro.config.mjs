@@ -10,13 +10,16 @@ import db from "@astrojs/db";
 import netlify from "@astrojs/netlify";
 
 import preact from "@astrojs/preact";
+import { remarkReadingTime } from "./src/utils/remarkReadingTime";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
   output: "server",
   integrations: [mdx(), sitemap(), db(), preact()],
-
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+  },
   vite: {
     plugins: [tailwindcss()],
   },

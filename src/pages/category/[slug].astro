@@ -8,7 +8,7 @@ import PostList from '../../components/PostList.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const page = Number(Astro.url.searchParams.get('page')) || 1;
-const postsPerPage = Number(import.meta.env.POSTS_PER_PAGE);
+const postsPerPage = Number(import.meta.env.VITE_POSTS_PER_PAGE) || 3;
 const start = postsPerPage * (page - 1);
 const end = start + postsPerPage;
 
@@ -18,6 +18,12 @@ const postsByCategory = allPosts
   .filter((post) => post.data.categories.includes(category));
 
   const posts = postsByCategory.slice(start, end);
+
+  console.log(postsByCategory.length);
+  console.log(start, end);
+  console.log(posts)
+  
+
 ---
 
 <Layout
