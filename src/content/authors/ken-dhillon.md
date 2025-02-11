@@ -1,4 +1,4 @@
 ---
-name: Jim Halpert
+name: ken dhillon
 image: ../posts/images/coffee.jpg
 ---

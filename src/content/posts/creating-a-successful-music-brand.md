@@ -1,5 +1,5 @@
 ---
-author: Ken Dhillon
+author: ken-dhillon
 categories: ["career advice"]
 date: 08/10/2021
 featured: false

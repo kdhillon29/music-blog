@@ -6,7 +6,8 @@ type Props = {
 };
 
 const { page, numberOfPosts } = Astro.props;
-const postsPerPage = Number(import.meta.env.POSTS_PER_PAGE);
+console.log("env", import.meta.env.VITE_POSTS_PER_PAGE);
+const postsPerPage = Number(import.meta.env.VITE_POSTS_PER_PAGE) || 3;
 const hasPreviousPosts = page > 1;
 const hasNextPosts = numberOfPosts > page * postsPerPage;
 ---

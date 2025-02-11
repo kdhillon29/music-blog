@@ -34,8 +34,9 @@
   </form>
 </div>
 
-<script>
-  const validateEmail = (email: string) => {
+<script is:inline>
+  console.log("script");
+  const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
       .match(
@@ -43,13 +44,11 @@
       );
   };
   const newsletterBtn = document.getElementById("newsletterBtn");
-  const email: HTMLInputElement | null = document.getElementById(
-    "email"
-  ) as HTMLInputElement | null;
-  newsletterBtn!.onclick = () => {
+  const email = document.getElementById("email");
+  newsletterBtn.onclick = () => {
     console.log("clicked");
-    if (validateEmail(email!.value)) {
-      newsletterBtn!.innerHTML = "Sending..";
+    if (validateEmail(email.value)) {
+      newsletterBtn.innerHTML = "Sending..";
     }
   };
 </script>

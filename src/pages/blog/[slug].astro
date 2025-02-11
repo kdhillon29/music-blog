@@ -16,15 +16,14 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"posts">;
 
-const post = Astro.props;
-const { Content } = await render(post);
+// const post = Astro.props;
 
-// const { slug } = Astro.params;
-// const post = await getEntry("posts", slug as string);
+const { slug } = Astro.params;
+const post = await getEntry("posts", slug as string);
 if (!post) {
   return Astro.redirect("/404");
 }
-// const { Content } = await render(post);
+const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.slug}>

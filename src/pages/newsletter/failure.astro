@@ -9,10 +9,9 @@ const message = Astro.url.searchParams.get("message");
   <Main>
     <p class="text-center text-red-500 pt-12 text-2xl">
       {message || "Something went wrong"}
-
-      <span class="text-white bg-teal-900 px-3 py-2 rounded-xl">
-        <a href="/">Go back</a>
-      </span>
     </p>
+    <span class="text-white bg-teal-900 px-3 py-2 rounded-xl">
+      <a href="/">Go back</a>
+    </span>
   </Main>
 </Layout>

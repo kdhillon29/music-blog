@@ -9,11 +9,13 @@ import db from "@astrojs/db";
 
 import netlify from "@astrojs/netlify";
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
   output: "server",
-  integrations: [mdx(), sitemap(), db()],
+  integrations: [mdx(), sitemap(), db(), preact()],
 
   vite: {
     plugins: [tailwindcss()],

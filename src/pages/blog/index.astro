@@ -11,19 +11,44 @@ import H1 from "../../components/H1.astro";
 import Main from "../../components/Main.astro";
 
 import PostList from "../../components/PostList.astro";
+import CategoryList from "../../components/CategoryList.astro";
+import Pagination from "../../components/Pagination.astro";
 
 // const posts = (await getCollection('blog')).sort(
 // 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 // );
 
-export const prerender = true;
-const posts = await getCollection("posts");
-console.log(posts[0].data.image);
+// export const prerender = true;
+const page = Number(Astro.url.searchParams.get("page")) || 1;
+console.log(page);
+const postsPerPage = Number(import.meta.env.VITE_POSTS_PER_PAGE) || 3;
+const start = postsPerPage * (page - 1);
+const end = start + postsPerPage;
+
+const allPosts = await getCollection("posts");
+const posts = allPosts.slice(start, end);
+const allCategories = allPosts.flatMap((post) => post.data.categories);
+const categories = Array.from(new Set(allCategories));
 ---
 
 <Layout title="Blog|Country Music" description="welcome to country music blog">
   <Main>
-    <H1 text="Blog" />
-    <PostList posts={posts} />
+    <H1 text="Rhythm Nation Blog" />
+
+    <p class="text-zinc-900 text-2xl mb-24 max-sm:mb-14">
+      Join the Community and learn from Music Producers and Enthusiasts
+    </p>
+
+    <div
+      class="grid grid-cols-[auto,1fr] gap-x-14 gap-y-3 mb-16 max-lg:grid-cols-1"
+    >
+      <CategoryList categories={categories} title="Tags" />
+    </div>
+
+    <div class="mb-32">
+      <PostList posts={posts} />
+    </div>
+
+    <Pagination page={page} numberOfPosts={allPosts.length} />
   </Main>
 </Layout>
