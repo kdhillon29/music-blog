@@ -5,6 +5,12 @@ import Newsletter from "./Newsletter.astro";
 <footer
   class="bg-teal-700 mt-6 md:mt-12 md:p-12 flex max-sm:flex-col justify-between items-center gap-2 py-6 max-sm:px-2 max-sm:pb-3 max-sm:pt-6"
 >
-  <p class="text-zinc-300">Copyright 2025. Country Music Nation</p>
+  <p class="text-zinc-300">
+    Copyright &copy;<span id="cpright"></span>. Country Music Nation
+  </p>
   <Newsletter />
 </footer>
+
+<script is:inline>
+  document.querySelector("#cpright").innerHTML = new Date().getFullYear();
+</script>

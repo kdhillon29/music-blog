@@ -10,7 +10,7 @@ import db from "@astrojs/db";
 import netlify from "@astrojs/netlify";
 
 import preact from "@astrojs/preact";
-import { remarkReadingTime } from "./src/utils/remarkReadingTime";
+import { remarkReadingTime } from "./src/utils/RemarkReadingTime";
 
 // https://astro.build/config
 export default defineConfig({
