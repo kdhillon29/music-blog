@@ -2,33 +2,52 @@
 import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
 
+import { Icon } from "astro-icon/components";
 // const userEmail = Astro.cookies.get("userEmail");
 ---
 
 <header
-  class="flex justify-between items-center md:p-12 max-sm:px-5 max-sm:py-10 max-w-7xl justify-self-center w-full"
+  class="flex justify-between items-center md:p-12 max-sm:px-1 max-sm:py-10 max-w-7xl w-full"
 >
-  <a href="/" class="flex max-sm:flex-col items-center">
-    <Image
+  <a href="/" class="flex max-sm:flex-col gap-0 items-center">
+    <!-- <Image
       loading="eager"
       src="/heartbeat.png"
       alt="country music blog logo"
-      width={64}
-      height={64}
+      width={32}
+      height={32}
       format="webp"
-      class="w-16"
-    />
+      class="w-12"
+    /> -->
 
-    <p class="uppercase text-3xl max-sm:text-xl font-bold text-teal-700">
-      music blog
+    <p
+      class="capitalize inline-flex gap-0 text-xl max-sm:text-md font-semibold text-teal-700"
+    >
+      <strong class="skew-x-[-10deg]">Music</strong><Icon
+        name="mdi:music"
+        size={28}
+        color="purple"
+        class="pb-2 ml-[-5px]"
+      />
+      <strong class="skew-y-[-10deg] text-[#61b65f] ml-[-5px]">Blog</strong>
     </p>
   </a>
   <div
     class="flex justify-between items-center md:text-xl px-3 md:px-6 gap-6 md:gap-12 max-sm:inline-flex"
   >
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
+    <HeaderLink href="/">
+      <Icon name="mdi:home" color="teal" />
+    </HeaderLink>
+    <HeaderLink href="/blog"
+      ><span class="flex items-center"
+        ><Icon name="mdi:blog" color="teal" /> Blog</span
+      ></HeaderLink
+    >
+    <HeaderLink href="/about">
+      <span class="flex items-center"
+        ><Icon name="mdi:information" color="teal" /> About</span
+      >
+    </HeaderLink>
   </div>
 
   <!-- {

@@ -12,11 +12,13 @@ import netlify from "@astrojs/netlify";
 import preact from "@astrojs/preact";
 import { remarkReadingTime } from "./src/utils/RemarkReadingTime";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
   output: "server",
-  integrations: [mdx(), sitemap(), db(), preact()],
+  integrations: [mdx(), sitemap(), db(), preact(), icon()],
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
