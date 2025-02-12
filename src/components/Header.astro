@@ -1,8 +1,18 @@
 ---
+export const prerender = false;
 import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
 
 import { Icon } from "astro-icon/components";
+import { SignIn, SignOut, Auth } from "auth-astro/components";
+import type { Session } from "@auth/core/types";
+import { getSession } from "auth-astro/server";
+import AuthComponent from "./AuthComponent";
+
+const session = await getSession(Astro.request);
+console.log("session header is", session);
+// const { userEmail, name } = session?.user;
+
 // const userEmail = Astro.cookies.get("userEmail");
 ---
 
@@ -33,7 +43,7 @@ import { Icon } from "astro-icon/components";
     </p>
   </a>
   <div
-    class="flex justify-between items-center md:text-xl px-3 md:px-6 gap-6 md:gap-12 max-sm:inline-flex"
+    class="flex justify-between items-center text-md md:text-xl md:px-6 gap-3 md:gap-6 max-sm:inline-flex"
   >
     <HeaderLink href="/">
       <Icon name="mdi:home" color="teal" />
@@ -48,23 +58,24 @@ import { Icon } from "astro-icon/components";
         ><Icon name="mdi:information" color="teal" /> About</span
       >
     </HeaderLink>
-  </div>
+    <AuthComponent client:load session={session} />
 
-  <!-- {
-    userEmail?.value ? (
-      <a
-        href="/logout"
-        class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
-      >
-        Logout
-      </a>
-    ) : (
-      <a
-        href="/login"
-        class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
-      >
-        Login
-      </a>
-    )
-  } -->
+    <!-- {
+      session?.user?.name ? (
+        <a
+          href="/logout"
+          class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
+        >
+          Logout
+        </a>
+      ) : (
+        <a
+          href="/login"
+          class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
+        >
+          Login
+        </a>
+      )
+    } -->
+  </div>
 </header>

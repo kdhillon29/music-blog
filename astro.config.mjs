@@ -14,11 +14,13 @@ import { remarkReadingTime } from "./src/utils/RemarkReadingTime";
 
 import icon from "astro-icon";
 
+import auth from "auth-astro";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
   output: "server",
-  integrations: [mdx(), sitemap(), db(), preact(), icon()],
+  integrations: [mdx(), sitemap(), db(), preact(), icon(), auth()],
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },

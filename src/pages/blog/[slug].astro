@@ -1,5 +1,5 @@
 ---
-export const prerender = true;
+export const prerender = false;
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { render } from "astro:content";
@@ -8,6 +8,8 @@ import H1 from "../../components/H1.astro";
 import { Image } from "astro:assets";
 import ViewComponent from "../../components/ViewComponent.astro";
 import PostMeta from "../../components/PostMeta.astro";
+import Views from "../../components/Views";
+import Comments from "../../components/Comments.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -19,6 +21,8 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"posts">;
 
 // const post = Astro.props;
+//  const { frontmatter } = Astro.props;
+// console.log("frontmatter", frontmatter);
 
 const { slug } = Astro.params;
 const post = await getEntry("posts", slug as string);
@@ -40,13 +44,15 @@ const { Content } = await render(post);
       format="webp"
       class="rounded-2xl shadow-xl mb-6 mx-auto md:h-92 object-cover"
     />
-    <PostMeta post={post} />
-    <div class="w-32 ml-auto mr-6 mt-[-3rem]">
-      <ViewComponent slug={post.slug} />
+    <div class="flex justify-between items-center gap-12">
+      <PostMeta post={post} />
+      <!-- <ViewComponent slug={post.slug} /> -->
+      <Views slug={post.slug} client:load />
     </div>
 
     <div class="prose md:prose-xl mx-auto relative overflow-visible mb-20">
       <Content />
+      <Comments postSlug={slug} />
     </div>
   </Main>
 </Layout>
