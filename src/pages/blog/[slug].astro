@@ -6,6 +6,8 @@ import { render } from "astro:content";
 import Main from "../../components/Main.astro";
 import H1 from "../../components/H1.astro";
 import { Image } from "astro:assets";
+import ViewComponent from "../../components/ViewComponent.astro";
+import PostMeta from "../../components/PostMeta.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -38,6 +40,8 @@ const { Content } = await render(post);
       format="webp"
       class="rounded-2xl shadow-xl mb-6 mx-auto md:h-92 object-cover"
     />
+    <PostMeta post={post} />
+
     <div class="prose md:prose-xl mx-auto relative overflow-visible mb-20">
       <Content />
     </div>

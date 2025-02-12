@@ -16,8 +16,16 @@ const Author = defineTable({
     lastName: column.text(),
   },
 });
+const Views = defineTable({
+  columns: {
+    slug: column.text({ primaryKey: true }),
+    count: column.number({
+      default: 1,
+    }),
+  },
+});
 export default defineDb({
-  tables: { Subscribe, Author },
+  tables: { Subscribe, Author, Views },
 });
 
 // export const db = defineDb({
