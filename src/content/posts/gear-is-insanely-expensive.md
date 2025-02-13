@@ -1,7 +1,7 @@
 ---
 author: ken-dhillon
 categories: ["career advice"]
-date: 08/10/2021
+date: 12/02/2024
 featured: false
 image: ./images/gear.jpg
 title: Gear is insanely expensive

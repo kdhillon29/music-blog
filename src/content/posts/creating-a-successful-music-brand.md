@@ -1,7 +1,7 @@
 ---
 author: ken-dhillon
 categories: ["career advice"]
-date: 08/10/2021
+date: 08/03/2024
 featured: false
 image: ./images/record.jpg
 title: Creating a successful music brand

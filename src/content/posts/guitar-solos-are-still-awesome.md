@@ -1,7 +1,7 @@
 ---
 author: ken-dhillon
 categories: ["career advice"]
-date: 08/10/2021
+date: 11/02/2024
 featured: false
 image: ./images/guitarist.jpg
 title: Guitar solos are still awesome

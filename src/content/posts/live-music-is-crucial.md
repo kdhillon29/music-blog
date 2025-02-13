@@ -1,7 +1,7 @@
 ---
 author: ken-dhillon
 categories: ["insights"]
-date: 08/10/2021
+date: 08/25/2024
 featured: false
 image: ./images/concert.jpg
 title: Live music is crucial

@@ -1,7 +1,7 @@
 ---
 author: ken-dhillon
 categories: ["studio tips"]
-date: 08/10/2021
+date: 12/6/2024
 featured: false
 image: ./images/band.jpg
 title: Collaboration in music production

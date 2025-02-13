@@ -3,7 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import BlogPost from "../../layouts/BlogPost.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -13,12 +13,14 @@ import Main from "../../components/Main.astro";
 import PostList from "../../components/PostList.astro";
 import CategoryList from "../../components/CategoryList.astro";
 import Pagination from "../../components/Pagination.astro";
+import { formatBlogPosts } from "../../utils/formatBlogPosts";
+import { undefined } from "astro:schema";
 
 // const posts = (await getCollection('blog')).sort(
 // 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 // );
 
-// export const prerender = true;
+export const prerender = false;
 const page = Number(Astro.url.searchParams.get("page")) || 1;
 console.log(page);
 const postsPerPage = Number(import.meta.env.VITE_POSTS_PER_PAGE) || 3;
@@ -26,7 +28,12 @@ const start = postsPerPage * (page - 1);
 const end = start + postsPerPage;
 
 const allPosts = await getCollection("posts");
-const posts = allPosts.slice(start, end);
+// const posts = allPosts.slice(start, end);
+const filtredPosts = formatBlogPosts(allPosts, {
+  start,
+  end,
+  sortByDate: true,
+});
 const allCategories = allPosts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 ---
@@ -46,7 +53,13 @@ const categories = Array.from(new Set(allCategories));
     </div>
 
     <div class="mb-6 md:mb-12">
-      <PostList posts={posts} />
+      {
+        filtredPosts?.length! > 0 ? (
+          <PostList posts={filtredPosts as CollectionEntry<"posts">[]} />
+        ) : (
+          <p>No posts were found with that tag</p>
+        )
+      }
     </div>
 
     <Pagination page={page} numberOfPosts={allPosts.length} />
