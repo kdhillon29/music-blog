@@ -36,9 +36,9 @@ if (!author) {
       class="text-zinc-600 text-xs md:text-md font-semibold"
     >
       {author.data.name}
+      <br /><strong class="text-zinc-500 rounded-xl text-xs md:text-md">
+        {remarkPluginFrontmatter.minutesRead} | {post.data.date}
+      </strong>
     </a>
   </div>
-  <span class="text-zinc-500 px-2 rounded-xl text-xs md:text-md">
-    {remarkPluginFrontmatter.minutesRead} | {post.data.date}
-  </span>
 </div>

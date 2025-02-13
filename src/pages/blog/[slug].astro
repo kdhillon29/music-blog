@@ -45,7 +45,7 @@ const { Content } = await render(post);
       format="webp"
       class="rounded-2xl shadow-xl mb-6 mx-auto md:h-92 object-cover"
     />
-    <div class="flex justify-between items-center gap-12">
+    <div class="flex px-4 md:px-8 justify-around items-center gap-2">
       <PostMeta post={post} />
       <!-- <ViewComponent slug={post.slug} /> -->
       <Views slug={post.slug} client:load />
