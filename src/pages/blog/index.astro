@@ -14,11 +14,6 @@ import PostList from "../../components/PostList.astro";
 import CategoryList from "../../components/CategoryList.astro";
 import Pagination from "../../components/Pagination.astro";
 import { formatBlogPosts } from "../../utils/formatBlogPosts";
-import { undefined } from "astro:schema";
-
-// const posts = (await getCollection('blog')).sort(
-// 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-// );
 
 export const prerender = false;
 const page = Number(Astro.url.searchParams.get("page")) || 1;
