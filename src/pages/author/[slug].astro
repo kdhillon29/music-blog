@@ -1,5 +1,7 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { formatBlogPosts } from "../../utils/formatBlogPosts";
+
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
 
 import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
@@ -14,7 +16,11 @@ if (!author) {
 }
 
 const allPosts = await getCollection("posts");
-const posts = allPosts.filter((post) => post.data.author.id === author.slug);
+// const posts = allPosts.filter((post) => post.data.author.id === author.slug);
+const filtredPosts = formatBlogPosts(allPosts, {
+  sortByDate: true,
+  author: author.slug,
+});
 ---
 
 <Layout title={author.data.name}>
@@ -23,12 +29,12 @@ const posts = allPosts.filter((post) => post.data.author.id === author.slug);
       ← <a href="/blog" class="underline">Back to all blogs</a>
     </div>
 
-    <p class="text-6xl text-teal-900 mb-16 font-bold">
-      Posts by {author.data.name}
+    <p class="text-3xl text-neutral-500 mb-6 md:mb-16 font-bold">
+      Posts by <strong class="text-teal-900">{author.data.name}</strong>
     </p>
 
-    <div class="mb-60">
-      <PostList posts={posts} />
+    <div class="mb-12">
+      <PostList posts={filtredPosts as CollectionEntry<"posts">[]} />
     </div>
   </Main>
 </Layout>

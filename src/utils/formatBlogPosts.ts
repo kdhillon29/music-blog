@@ -9,9 +9,10 @@ export function formatBlogPosts(
     start = 0,
     end = posts.length,
     limit = undefined,
+    author = "",
   } = {}
 ) {
-  console.log(start, end);
+  console.log("filteredPosts", start, end, author);
   const filteredPosts = posts.reduce(
     (acc: CollectionEntry<"posts">[], post: CollectionEntry<"posts">) => {
       // const { date, draft=false } = post.data;
@@ -24,6 +25,10 @@ export function formatBlogPosts(
     },
     []
   );
+  if (author) {
+    console.log("filteredPosts are", filteredPosts);
+    return filteredPosts.filter((post) => post.data.author.id === author);
+  }
   if (sortByDate) {
     filteredPosts.sort((a, b) => {
       return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();

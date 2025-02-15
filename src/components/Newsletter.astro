@@ -9,7 +9,6 @@
   </div>
   <form method="POST" action="/api/newsletter" class="flex md:max-w-xl gap-2">
     <input
-      transition:persist="false"
       type="email"
       name="email"
       required
@@ -30,20 +29,22 @@
 </div>
 
 <script is:inline>
-  console.log("script");
-  const validateEmail = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
-  const newsletterBtn = document.getElementById("newsletterBtn");
-  const email = document.getElementById("email");
-  newsletterBtn.onclick = () => {
-    console.log("clicked");
-    if (validateEmail(email.value)) {
-      newsletterBtn.innerHTML = "Sending..";
+  window.onload = () => {
+    console.log("newsletter script");
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
     }
+    const newsletterBtn = document.querySelector("#newsletterBtn");
+    const email = document.querySelector("#email");
+    newsletterBtn.addEventListener("click", () => {
+      console.log("clicked");
+      console.log(email.value);
+      console.log(validateEmail(email.value));
+      if (validateEmail(email.value)) {
+        newsletterBtn.innerHTML = "Sending..";
+      }
+    });
   };
 </script>
