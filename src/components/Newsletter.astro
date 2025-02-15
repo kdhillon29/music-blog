@@ -28,17 +28,17 @@
   </form>
 </div>
 
-<script is:inline>
+<script>
   window.onload = () => {
     console.log("newsletter script");
-    function validateEmail(email) {
+    function validateEmail(email: string) {
       const re =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     }
     const newsletterBtn = document.querySelector("#newsletterBtn");
-    const email = document.querySelector("#email");
-    newsletterBtn.addEventListener("click", () => {
+    const email = document.querySelector("#email") as HTMLInputElement;
+    newsletterBtn?.addEventListener("click", () => {
       console.log("clicked");
       console.log(email.value);
       console.log(validateEmail(email.value));

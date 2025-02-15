@@ -11,6 +11,7 @@ import Newsletter from "./Newsletter.astro";
   <Newsletter />
 </footer>
 
-<script is:inline>
-  document.querySelector("#cpright").innerHTML = new Date().getFullYear();
+<script>
+  const cpright = document.querySelector("#cpright");
+  cpright!.innerHTML = new Date().getFullYear().toString();
 </script>
