@@ -53,8 +53,8 @@ const { Content } = await render(post);
 
     <div class="prose md:prose-xl mx-auto relative overflow-visible mb-20">
       <Content />
-      <Comments postSlug={slug} />
-      <CommentForm postSlug={slug} />
+      <Comments postSlug={slug} server:defer />
+      <CommentForm postSlug={slug} server:defer />
     </div>
   </Main>
 </Layout>
