@@ -22,6 +22,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
       type="text"
       id="name"
       name="name"
+      value={result?.data?.name || ""}
       required
       class="w-full p-2 border rounded"
     />
@@ -34,6 +35,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
       type="email"
       id="email"
       name="email"
+      value={result?.data?.email || ""}
       required
       class="w-full p-2 border rounded"
     />
@@ -50,7 +52,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     {inputErrors.message && <p class="text-red-500">{inputErrors.message}</p>}
   </div>
 
-  <button type="submit" class="px-4 py-2 bg-purple-600 text-white rounded">
+  <button type="submit" class="px-4 py-2 bg-teal-600 text-white rounded">
     Add Comment
   </button>
 </form>
