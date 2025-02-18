@@ -22,5 +22,5 @@ export default function ViewComponent({ slug }: { slug: string }) {
       }, [])
       
     
-    return <p class="text-teal-900/80 p-3  text-xs md:text-sm font-semibold">Total Views: {views}</p>;
+    return <p class="text-teal-900/80 dark:text-teal-100 p-3  text-xs md:text-sm font-semibold">Total Views: {views}</p>;
   }

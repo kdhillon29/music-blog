@@ -1,10 +1,11 @@
 ---
+title: Live music is crucial
+description: "Live music is crucial for the success of any music project, as it allows for the pooling of diverse talents and perspectives to create something truly unique and compelling."
 author: ken-dhillon
 categories: ["insights"]
 date: 08/25/2024
 featured: false
 image: ./images/concert.jpg
-title: Live music is crucial
 ---
 
 Collaboration is a key component of many creative endeavors, and music production is no exception. In fact, collaboration can be essential to the success of a music project, as it allows for the pooling of diverse talents and perspectives to create something truly unique and compelling.

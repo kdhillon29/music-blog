@@ -1,10 +1,11 @@
 ---
+title: Gear is insanely expensive
+description: "Gear is insanely expensive, and it's not just for musicians. It's for everyone in the music industry."
 author: ken-dhillon
 categories: ["career advice"]
 date: 12/02/2024
 featured: true
 image: ./images/gear.jpg
-title: Gear is insanely expensive
 ---
 
 Collaboration is a key component of many creative endeavors, and music production is no exception. In fact, collaboration can be essential to the success of a music project, as it allows for the pooling of diverse talents and perspectives to create something truly unique and compelling.

@@ -23,19 +23,20 @@ console.log("session is", session);
 
 <Layout>
   <Main>
-    <H1 text="Country Music Blog" />
-
-    <p class="text-zinc-900 text-lg md:text-2xl md:px-3 mb-3 md:mb-6">
+    <H1 text="Country Music" />
+    <p
+      class="text-zinc-900 dark:text-zinc-200 text-xs md:text-lg mt-[-1%] mb-6 md:mb-18 text-center"
+    >
       Join the Community and learn from Music Producers and Enthusiasts
     </p>
 
     {featuredPosts.map((post) => <FeaturedPost post={post} />)}
 
-    <hr class="w-full border border-teal-900 mb-1 md:mb-3" />
+    <hr
+      class="w-full border border-teal-900 dark:border-teal-100 mb-1 md:mb-3"
+    />
 
-    <div
-      class="grid grid-cols-[auto,1fr] gap-x-14 gap-y-3 mb-16 max-lg:grid-cols-1"
-    >
+    <div class="grid grid-cols-[auto,1fr] gap-3 mb-6 max-sm:grid-cols-1">
       <CategoryList categories={categories} title="Recent Posts" />
     </div>
 

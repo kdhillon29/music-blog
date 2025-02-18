@@ -1,0 +1,8 @@
+{
+  "title": "My Astro musical country Blog",
+  "description": "My musings about the Astro framework and country music ",
+  "image": {
+    "src": "/heartbeat.png",
+    "alt": "My Astro musical country Blog"
+  }
+}

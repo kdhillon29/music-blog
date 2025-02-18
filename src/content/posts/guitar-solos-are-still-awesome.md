@@ -5,6 +5,7 @@ date: 11/02/2024
 featured: false
 image: ./images/guitarist.jpg
 title: Guitar solos are still awesome
+description: "Guitar solos are still awesome, and they're still the best way to show off your skills as a guitarist."
 ---
 
 Collaboration is a key component of many creative endeavors, and music production is no exception. In fact, collaboration can be essential to the success of a music project, as it allows for the pooling of diverse talents and perspectives to create something truly unique and compelling.
