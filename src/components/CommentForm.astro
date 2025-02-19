@@ -12,7 +12,7 @@ console.log("result", result);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
 
-<form method="POST" action={actions.addComment} class="mb-8">
+<form id="commentForm" method="POST" action={actions.addComment} class="mb-8">
   <h2>Add a New Comment</h2>
   <input type="hidden" name="postSlug" value={postSlug} />
 
@@ -20,6 +20,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     <label for="name">Name:</label>
     <input
       type="text"
+      transition:persist
       id="name"
       name="name"
       required
@@ -32,9 +33,9 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     <label for="email">Email:</label>
     <input
       type="email"
+      transition:persist
       id="email"
       name="email"
-      value={result?.data?.email || ""}
       required
       class="w-full p-2 border rounded"
     />
@@ -45,6 +46,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     <label for="message">Comment:</label>
     <textarea
       id="message"
+      transition:persist
       name="message"
       required
       class="w-full p-2 border rounded"></textarea>

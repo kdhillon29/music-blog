@@ -48,7 +48,7 @@ const { Content } = await render(post);
     <div class="flex mt-3 px-4 md:px-8 justify-around items-center gap-2">
       <PostMeta post={post} />
       <!-- <ViewComponent slug={post.slug} /> -->
-      <Views slug={post.slug} client:load />
+      <Views slug={post.slug} client:load server:defer />
     </div>
 
     <div

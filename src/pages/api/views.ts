@@ -1,4 +1,5 @@
 // api/views.ts
+import { isbot } from "isbot";
 import type { APIRoute } from "astro";
 import { db, Views, sql, eq } from "astro:db";
 
@@ -11,6 +12,11 @@ export const GET: APIRoute = async ({ request }) => {
 
   if (!slug) {
     return new Response("Not found", { status: 404 });
+  }
+  if (isbot(request.headers.get("user-agent"))) {
+    return new Response("This endpoint is not available for bots", {
+      status: 403,
+    });
   }
 
   let item;

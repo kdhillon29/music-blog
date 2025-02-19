@@ -15,7 +15,7 @@ const comments = await db
 console.log("comments", comments);
 ---
 
-<div class="space-y-4">
+<div id="comments" class="space-y-4">
   {
     comments.map((comment) => (
       <div class="p-4 bg-gray-50 dark:bg-zinc-800 rounded">

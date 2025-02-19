@@ -20,6 +20,9 @@ import auth from "auth-astro";
 export default defineConfig({
   site: "https://astro-music-blog.netlify.app/",
   output: "server",
+  prefetch: {
+    defaultStrategy: "viewport",
+  },
   integrations: [
     mdx(),
     sitemap({
