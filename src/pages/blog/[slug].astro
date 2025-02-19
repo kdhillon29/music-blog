@@ -52,10 +52,10 @@ const { Content } = await render(post);
     </div>
 
     <div
-      class="prose md:prose-xl dark:prose-invert mx-auto relative overflow-visible mb-20"
+      class="prose md:prose-xl dark:prose-invert mx-auto relative overflow-visible mt-6 md:mt-12 mb-12"
     >
       <Content />
-      <Comments postSlug={slug} />
+      <Comments postSlug={slug} server:defer />
       <CommentForm postSlug={slug} />
     </div>
   </Main>
