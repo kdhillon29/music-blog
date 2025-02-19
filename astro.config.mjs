@@ -18,7 +18,7 @@ import auth from "auth-astro";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:4321",
+  site: "https://astro-music-blog.netlify.app/",
   output: "server",
   integrations: [
     mdx(),
