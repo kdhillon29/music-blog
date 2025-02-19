@@ -2,7 +2,7 @@ import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro:schema";
 import { db, Comment, isDbError } from "astro:db";
 import { isbot } from "isbot";
-import { ZodError } from "astro/zod";
+// import { ZodError } from "astro/zod";
 
 export const server = {
   addComment: defineAction({
@@ -43,13 +43,13 @@ export const server = {
             message: e.message,
           });
         }
-        if (e instanceof ZodError) {
-          throw new ActionError({
-            code: "BAD_REQUEST",
-            message: e.message,
-            // stack:{name, email, message}
-          });
-        }
+        // if (e instanceof ZodError) {
+        //   throw new ActionError({
+        //     code: "BAD_REQUEST",
+        //     message: e.message,
+        //     // stack:{name, email, message}
+        //   });
+        // }
         throw e;
       }
     },

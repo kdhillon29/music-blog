@@ -15,6 +15,7 @@ import { remarkReadingTime } from "./src/utils/RemarkReadingTime";
 import icon from "astro-icon";
 
 import auth from "auth-astro";
+import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,6 +33,7 @@ export default defineConfig({
     preact(),
     icon(),
     auth(),
+    pagefind(),
   ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
