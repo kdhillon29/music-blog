@@ -11,8 +11,20 @@ html {
   --color-primary: #111827;
   --color-secondary: #64748b;
   --color-accent: green;
+  --animate-slide-in: slide-in 0.25s ease-in-out forwards var(--delay, 0);
 }
 @plugin "@tailwindcss/typography";
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 :root {
   --accent: #2337ff;

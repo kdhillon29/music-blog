@@ -9,6 +9,7 @@ import type { Session } from "@auth/core/types";
 import { getSession } from "auth-astro/server";
 import AuthComponent from "./AuthComponent";
 import ThemeToggle from "./ThemeToggle.astro";
+import Logo from "./Logo.astro";
 
 const session = await getSession(Astro.request);
 console.log("session header is", session);
@@ -21,32 +22,8 @@ console.log("session header is", session);
   class="flex justify-between items-center p-3 md:px-24 shadow-md sticky top-0 z-100
    bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 max-w-7xl w-full"
 >
-  <a href="/" class="flex max-sm:flex-col gap-0 items-center">
-    <!-- <Image
-      loading="eager"
-      src="/heartbeat.png"
-      alt="country music blog logo"
-      width={32}
-      height={32}
-      format="webp"
-      class="w-12"
-    /> -->
+  <Logo />
 
-    <p
-      class="capitalize inline-flex gap-0 text-xl max-sm:text-md font-semibold text-teal-700 dark:text-teal-100"
-    >
-      <strong class="skew-x-[-10deg]">Music</strong><Icon
-        name="mdi:music"
-        size={28}
-        color="purple"
-        class="pb-2 ml-[-5px]"
-      />
-      <strong
-        class="skew-y-[-10deg] text-[#61b65f] dark:text-teal-200 ml-[-5px]"
-        >Blog</strong
-      >
-    </p>
-  </a>
   <div class="mt-[-2%] md:text-2xl">
     <ThemeToggle />
   </div>
@@ -70,7 +47,7 @@ console.log("session header is", session);
     <HeaderLink href="/about">
       <span class="flex items-center"
         ><Icon name="mdi:information" color="teal" />
-        <span class="dark:text-white max-sm:text-sm">About</span></span
+        <span class="dark:text-white">About</span></span
       >
     </HeaderLink>
     <AuthComponent client:load session={session} />

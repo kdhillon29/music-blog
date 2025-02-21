@@ -1,0 +1,52 @@
+---
+// Component Imports
+import BaseHead from "../../components/BaseHead.astro";
+import Card from "../../components/Card.tsx";
+import Nav from "../../components/Nav.tsx";
+import Layout from "../../layouts/Layout.astro";
+
+type ProductType = {
+  frontmatter: {
+    title: string;
+    layout: string;
+    company: string;
+    published_at: string;
+    description: string;
+    img: string[];
+    thumbnails: string[];
+  };
+  url: string;
+  content: string;
+};
+const products: ProductType[] = Object.values(
+  import.meta.glob("./*.md", { eager: true })
+);
+console.log("products are: ", products);
+// const filteredProducts = products
+//   .filter(({ data: { published_at } }) => !!published_at)
+//   .sort(
+//     (a, b) =>
+//       new Date(b.data.published_at).valueOf() -
+//       new Date(a.data.published_at).valueOf()
+//   );
+---
+
+<Layout
+  title="Shop"
+  description="Check out and shop our special musical products that are made in the USA "
+>
+  <div class="container mx-auto">
+    <!-- <Nav client:visible /> -->
+    <div class="flex flex-col justify-center py-10 md:mb-8 items-center w-full">
+      <h1
+        class="text-4xl font-Kumbh font-bold uppercase text-gray-900 dark:text-white"
+      >
+        products
+      </h1>
+    </div>
+    <!-- Creats cards from products md files -->
+    <div class="flex items-center justify-between max-sm:flex-col">
+      {products.map((product) => <Card product={product} client:load />)}
+    </div>
+  </div>
+</Layout>

@@ -6,6 +6,10 @@ import Footer from "../components/Footer.astro";
 import { ClientRouter, fade, slide } from "astro:transitions";
 import type { CollectionEntry } from "astro:content";
 import Seo from "../components/Seo.astro";
+import MobileNav from "../components/MobileNav";
+import Logo from "../components/Logo.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import CartNav from "../components/CartNav";
 
 export interface Props {
   title?: string;
@@ -62,8 +66,17 @@ const {
   </head>
 
   <body class="min-h-screen bg-neutral-100 dark:bg-[#061723]">
-    <Header />
+    <div class="max-sm:hidden"><Header /></div>
+    <div
+      class="md:hidden flex justify-between items-center p-3 md:px-24 shadow-md sticky top-0 z-100
+    bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 w-full"
+    >
+      <Logo />
+      <ThemeToggle />
 
+      <CartNav client:load />
+      <MobileNav client:load />
+    </div>
     <main class="min-h-[70vh]">
       <div transition:animate={fade({ duration: ".8s" })}>
         <slot />
