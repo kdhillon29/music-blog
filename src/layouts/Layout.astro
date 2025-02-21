@@ -74,15 +74,14 @@ const {
     bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 w-full"
     >
       <Logo />
-      <ThemeToggle />
-      <HeaderLink href="/search">
-        <Icon
-          name="mdi:search"
-          size={28}
-          color="teal"
-          class="bg-neutral-50 rounded-full"
-        />
-      </HeaderLink>
+      <div
+        class="flex justify-between items-center gap-3 mb-[-10%] shadow-md rounded-xl"
+      >
+        <ThemeToggle />
+        <HeaderLink href="/search">
+          <Icon name="mdi:search" size={32} color="teal" class="rounded-full" />
+        </HeaderLink>
+      </div>
 
       <CartNav client:load />
       <MobileNav client:load />

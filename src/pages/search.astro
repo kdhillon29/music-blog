@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
   <script is:inline src="/pagefind/pagefind-ui.js"></script>
   <h1 class="text-3xl text-center mt-3 dark:text-white">Search</h1>
   <div id="search" transition:persist></div>
-  <script is:inline data-astro-rerun>
+  <script>
     // @ts-expect-error
     import { PagefindUI } from "@pagefind/default-ui";
     window.addEventListener("DOMContentLoaded", () => {
@@ -30,8 +30,8 @@ import Layout from "../layouts/Layout.astro";
         input.dispatchEvent(new Event("input", { bubbles: true }));
       }
       input?.addEventListener("input", (e) => {
-        // const input = e.target as HTMLInputElement;
-        const input = e.target;
+        const input = e.target as HTMLInputElement;
+        // const input = e.target;
         const url = new URL(window.location.href);
         const params = new URLSearchParams(url.search);
         params.set("q", input.value);

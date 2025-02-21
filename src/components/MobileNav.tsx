@@ -16,6 +16,11 @@ function MobileNav(){
         }
     }
     
+    useEffect(() => {
+        const menu = gsap.utils.toArray(animation.current.map(el=>{return el.base ? el.base:el }));
+        gsap.set(menu,{xPercent:-100})
+        gsap.set(overlay,{opacity:0 , pointerEvents:"none"})
+    }, [])
    useEffect(() => {
        const menu = gsap.utils.toArray(animation.current.map(el=>{return el.base ? el.base:el }));
        if(isOpen){
@@ -27,11 +32,6 @@ function MobileNav(){
         }
     }, [isOpen])
     
-    useEffect(() => {
-        const menu = gsap.utils.toArray(animation.current.map(el=>{return el.base ? el.base:el }));
-        gsap.set(menu,{xPercent:-100})
-        gsap.set(overlay,{opacity:0 , pointerEvents:"none"})
-    }, [])
 
 
     return(

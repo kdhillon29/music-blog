@@ -7,7 +7,7 @@ function Cart(){
 
     return(     
             <div class="absolute z-10 w-[90%] h-auto animate-slide-in delay-300  mx-4 p-5  top-18 right-[-5%]
-            bg-gray-100 dark:bg-gray-700  
+            bg-gray-200 dark:bg-gray-700  
              rounded-2xl shadow-2xl">
                 <h1 class=" mb-8 font-bold text-lg text-left text-gray-700 dark:text-white">Cart</h1> 
                 {(()=>{
@@ -35,7 +35,7 @@ function Cart(){
                                     </div>
                               </div>
                         ))}
-                        <button class="flex w-full justify-center ml-auto py-5 px-16 font-Kumbh font-semibold rounded-xl bg-yellow-500 text-white shadow-md hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75">
+                        <button class="flex w-full justify-center ml-auto py-5 px-16  font-semibold rounded-xl bg-teal-700 text-white shadow-md hover:bg-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75">
                           Checkout
                         </button>
                     </> 
