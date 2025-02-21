@@ -19,7 +19,7 @@ console.log("session header is", session);
 
 <header
   class="flex justify-between items-center p-3 md:px-24 shadow-md sticky top-0 z-100
-   bg-neutral-200 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 max-w-7xl w-full"
+   bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 max-w-7xl w-full"
 >
   <a href="/" class="flex max-sm:flex-col gap-0 items-center">
     <!-- <Image
@@ -54,18 +54,23 @@ console.log("session header is", session);
     class="flex justify-between items-center text-md md:text-xl md:px-6 gap-3 md:gap-6 max-sm:inline-flex"
   >
     <HeaderLink href="/search">
-      <Icon name="mdi:search" color="teal" />
+      <Icon
+        name="mdi:search"
+        size={28}
+        color="teal"
+        class="hover:rotate-12 bg-neutral-50 rounded-full"
+      />
     </HeaderLink>
     <HeaderLink href="/blog"
       ><span class="flex items-center"
         ><Icon name="mdi:blog" color="teal" />
-        <span class="dark:text-white">Blog</span></span
+        <span class="dark:text-white max-sm:text-sm">Blog</span></span
       ></HeaderLink
     >
     <HeaderLink href="/about">
       <span class="flex items-center"
         ><Icon name="mdi:information" color="teal" />
-        <span class="dark:text-white">About</span></span
+        <span class="dark:text-white max-sm:text-sm">About</span></span
       >
     </HeaderLink>
     <AuthComponent client:load session={session} />

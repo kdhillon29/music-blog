@@ -11,6 +11,7 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
 
 <a
   href={href}
+  data-astro-reload={href === "/search"}
   data-astro-prefetch
   class:list={[className, { active: isActive }]}
   {...props}
