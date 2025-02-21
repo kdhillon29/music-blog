@@ -10,6 +10,7 @@ export function formatBlogPosts(
     end = posts.length,
     limit = undefined,
     author = "",
+    category = "",
   } = {}
 ) {
   console.log("filteredPosts", start, end, author);
@@ -28,6 +29,11 @@ export function formatBlogPosts(
   if (author) {
     console.log("filteredPosts are", filteredPosts);
     return filteredPosts.filter((post) => post.data.author.id === author);
+  }
+  if (category) {
+    return filteredPosts.filter((post) =>
+      post.data.categories.includes(category)
+    );
   }
   if (sortByDate) {
     filteredPosts.sort((a, b) => {

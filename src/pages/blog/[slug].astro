@@ -16,12 +16,13 @@ export async function getStaticPaths() {
   const posts = await getCollection("posts");
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: post,
+    props: { post },
   }));
 }
-type Props = CollectionEntry<"posts">;
+// type Props = CollectionEntry<"posts">;
 
-// const post = Astro.props;
+// const { post } = Astro.props;
+// const { slug } = Astro.params;
 //  const { frontmatter } = Astro.props;
 // console.log("frontmatter", frontmatter);
 
@@ -56,7 +57,7 @@ const { Content } = await render(post);
     >
       <Content />
       <Comments postSlug={slug} server:defer />
-      <CommentForm postSlug={slug} />
+      <CommentForm postSlug={slug} server:defer />
     </div>
   </Main>
 </Layout>

@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import { formatBlogPosts } from "../../utils/formatBlogPosts";
 
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
@@ -8,19 +9,37 @@ import PostList from "../../components/PostList.astro";
 import Main from "../../components/Main.astro";
 
 const { slug } = Astro.params;
-
-const author = await getEntry("authors", slug as string);
-
-if (!author) {
-  return Astro.redirect("/404");
+export async function getStaticPaths() {
+  const authors = await getCollection("authors");
+  const allPosts = await getCollection("posts");
+  return authors.map((author) => {
+    {
+      let filtredPosts = formatBlogPosts(allPosts, {
+        sortByDate: true,
+        author: author.slug,
+      });
+      return {
+        params: { slug: author.slug },
+        props: { author, filtredPosts },
+      };
+    }
+  });
 }
 
-const allPosts = await getCollection("posts");
+// const author = await getEntry("authors", slug as string);
+
+// if (!author) {
+//   return Astro.redirect("/404");
+// }
+
+// const allPosts = await getCollection("posts");
 // const posts = allPosts.filter((post) => post.data.author.id === author.slug);
-const filtredPosts = formatBlogPosts(allPosts, {
-  sortByDate: true,
-  author: author.slug,
-});
+// const filtredPosts = formatBlogPosts(allPosts, {
+//   sortByDate: true,
+//   author: author.slug,
+// });
+
+const { author, filtredPosts } = Astro.props;
 ---
 
 <Layout title={author.data.name}>
