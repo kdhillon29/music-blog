@@ -6,10 +6,10 @@ function Cart(){
   const cart = useStore($cart);
 
     return(     
-            <div class="absolute z-10 w-96 h-auto animate-slide-in  mx-4 p-5  top-18 right-[-10%]  
-            bg-gray-200 dark:bg-gray-700 hover:translate-x-[-10%]  transition-all duration-1000 ease-in-out
+            <div class="absolute z-10 w-[90%] h-auto animate-slide-in delay-300  mx-4 p-5  top-18 right-[-5%]
+            bg-gray-100 dark:bg-gray-700  
              rounded-2xl shadow-2xl">
-                <h1 class="font-Kumbh mb-8 font-bold text-lg text-left text-gray-700 dark:text-white">Cart</h1> 
+                <h1 class=" mb-8 font-bold text-lg text-left text-gray-700 dark:text-white">Cart</h1> 
                 {(()=>{
                   if(cart.length>0){
                    return(

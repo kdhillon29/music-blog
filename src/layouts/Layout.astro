@@ -10,6 +10,8 @@ import MobileNav from "../components/MobileNav";
 import Logo from "../components/Logo.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import CartNav from "../components/CartNav";
+import HeaderLink from "../components/HeaderLink.astro";
+import { Icon } from "astro-icon/components";
 
 export interface Props {
   title?: string;
@@ -66,13 +68,21 @@ const {
   </head>
 
   <body class="min-h-screen bg-neutral-100 dark:bg-[#061723]">
-    <div class="max-sm:hidden"><Header /></div>
+    <div class="hidden md:block"><Header /></div>
     <div
-      class="md:hidden flex justify-between items-center p-3 md:px-24 shadow-md sticky top-0 z-100
+      class="md:hidden flex justify-between items-center gap-6 p-3 md:px-24 shadow-md sticky top-0 z-100
     bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 w-full"
     >
       <Logo />
       <ThemeToggle />
+      <HeaderLink href="/search">
+        <Icon
+          name="mdi:search"
+          size={28}
+          color="teal"
+          class="bg-neutral-50 rounded-full"
+        />
+      </HeaderLink>
 
       <CartNav client:load />
       <MobileNav client:load />
