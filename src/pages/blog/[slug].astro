@@ -1,5 +1,5 @@
 ---
-// export const prerender = true;
+export const prerender = false;
 import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { render } from "astro:content";
@@ -57,7 +57,7 @@ const { Content } = await render(post);
     >
       <Content />
       <Comments postSlug={slug} server:defer />
-      <CommentForm postSlug={slug} server:defer />
+      <CommentForm postSlug={slug} />
     </div>
   </Main>
 </Layout>

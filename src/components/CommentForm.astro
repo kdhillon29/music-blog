@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import { actions, isInputError } from "astro:actions";
+import Toastie from "./Toastie";
 
 interface Props {
   postSlug: string;
@@ -9,10 +10,22 @@ interface Props {
 const { postSlug } = Astro.props;
 
 const result = Astro.getActionResult(actions.addComment);
-console.log("result", result);
+// if (result?.error) {
+//   Astro.redirect("/commentForm");
+// }
+console.log("result", result?.data);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 console.log("inputErrors", inputErrors);
 ---
+
+<!-- <Toastie msg="Successfully added comment" client:load /> -->{
+  result?.data?.id && <Toastie msg="Successfully added comment" client:load />
+}
+{
+  result?.error && (
+    <Toastie msg="Error adding comment" category="error" client:load />
+  )
+}
 
 <form id="commentForm" method="POST" action={actions.addComment} class="mb-8">
   <h2>Add a New Comment</h2>
@@ -25,6 +38,7 @@ console.log("inputErrors", inputErrors);
       transition:persist
       id="name"
       name="name"
+      value={inputErrors.name ? result?.data?.name : ""}
       required
       class="w-full p-2 border rounded"
     />
@@ -38,6 +52,7 @@ console.log("inputErrors", inputErrors);
       transition:persist
       id="email"
       name="email"
+      value={inputErrors.email ? result?.data?.email : ""}
       required
       class="w-full p-2 border rounded"
     />
@@ -50,6 +65,7 @@ console.log("inputErrors", inputErrors);
       id="message"
       transition:persist
       name="message"
+      value={inputErrors.message ? result?.data?.message : ""}
       required
       class="w-full p-2 border rounded"></textarea>
     {inputErrors.message && <p class="text-red-500">{inputErrors.message}</p>}

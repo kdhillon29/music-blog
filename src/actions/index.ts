@@ -14,7 +14,7 @@ export const server = {
     handler: async ({ postSlug, name, email, message }) => {
       console.log("postSlug", postSlug);
       console.log("name", name);
-      // console.log(postSlug, name, email, message);
+      console.log(postSlug, name, email, message);
       const comment = await db
         .insert(Comment)
         .values({
