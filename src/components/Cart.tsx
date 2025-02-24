@@ -1,12 +1,13 @@
 import { h, Fragment } from 'preact';
 import { useStore } from '@nanostores/preact';
 import { $cart, deletProduct} from '../store/product.ts';
+import { navigate } from 'astro/virtual-modules/transitions-router.js';
 
 function Cart(){
   const cart = useStore($cart);
 
     return(     
-            <div class="absolute z-10 w-[90%] h-auto animate-slide-in delay-300  mx-4 p-5  top-18 right-[-5%]
+            <div class="absolute z-10 w-auto px-12 h-auto animate-slide-in delay-300  mx-4 py-3  top-18 right-[-1%]
             bg-gray-200 dark:bg-gray-700  
              rounded-2xl shadow-2xl">
                 <h1 class=" mb-8 font-bold text-lg text-left text-gray-700 dark:text-white">Cart</h1> 
@@ -35,7 +36,7 @@ function Cart(){
                                     </div>
                               </div>
                         ))}
-                        <button class="flex w-full justify-center ml-auto py-5 px-16  font-semibold rounded-xl bg-teal-700 text-white shadow-md hover:bg-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75">
+                        <button onClick={()=>{navigate('/checkout')}} class="flex w-full justify-center ml-auto py-5 px-16  font-semibold rounded-xl bg-teal-700 text-white shadow-md hover:bg-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-75">
                           Checkout
                         </button>
                     </> 

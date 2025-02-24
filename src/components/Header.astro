@@ -10,6 +10,7 @@ import { getSession } from "auth-astro/server";
 import AuthComponent from "./AuthComponent";
 import ThemeToggle from "./ThemeToggle.astro";
 import Logo from "./Logo.astro";
+import CartNav from "./CartNav";
 
 const session = await getSession(Astro.request);
 console.log("session header is", session);
@@ -19,23 +20,23 @@ console.log("session header is", session);
 ---
 
 <header
-  class="flex justify-between items-center p-3 md:px-24 shadow-md sticky top-0 z-100
+  class="max-sm:hidden flex justify-between items-center p-3 shadow-md sticky top-0 left-0 right-0 z-100
    bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 max-w-7xl w-full"
 >
   <Logo />
 
-  <div class="mt-[-2%] md:text-2xl">
+  <div class="mt-[-2%] md:text-xl">
     <ThemeToggle />
   </div>
   <div
-    class="flex justify-between items-center text-md md:text-xl md:px-6 gap-3 md:gap-6 max-sm:inline-flex"
+    class="flex justify-between items-center text-sm md:text-md md:px-6 gap-3 md:gap-6 max-sm:inline-flex"
   >
     <HeaderLink href="/search">
       <Icon
         name="mdi:search"
         size={28}
         color="teal"
-        class="hover:rotate-12 bg-neutral-50 rounded-full"
+        class="hover:rotate-12 bg-neutral-100 dark:bg-[#050f0f]/80 rounded-full"
       />
     </HeaderLink>
     <HeaderLink href="/blog"
@@ -44,6 +45,13 @@ console.log("session header is", session);
         <span class="dark:text-white max-sm:text-sm">Blog</span></span
       ></HeaderLink
     >
+    <HeaderLink href="/shop">
+      <span class="flex items-center"
+        ><Icon name="mdi:shop" color="teal" />
+        <span class="dark:text-white mr-2">Shop</span>
+      </span>
+    </HeaderLink>
+    <CartNav client:load />
     <HeaderLink href="/about">
       <span class="flex items-center"
         ><Icon name="mdi:information" color="teal" />

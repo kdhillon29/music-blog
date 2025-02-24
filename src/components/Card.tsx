@@ -14,8 +14,8 @@ function Card({product}: Props){
         </button>
         <div class=" w-full md:w-1/2 py-3 flex flex-col gap-1  items-center ">
 
-          <p class="text-md md:text-xl font-semibold">{product.frontmatter.title}</p>
-          <p class=" text-md md:text-base font-semibold">{product.frontmatter.price}</p>
+          <p class="text-md md:text-xl text-neutral-700 dark:text-neutral-200 font-semibold">{product.frontmatter.title}</p>
+          <p class=" text-md md:text-base text-neutral-700 dark:text-neutral-200 font-semibold">{product.frontmatter.price}</p>
           <p class="text-gray-500 w-2/3 md:w-full text-center text-sm md:text-md line-clamp-2">{product.frontmatter.description}</p>
           {/* <button class="bg-violet-500/80 text-white px-2 py-1 rounded-full" onClick={()=> addProduct(product)}>Add To cart</button> */}
           <CallToAction data={ {title: product.frontmatter.title , id: product.frontmatter.id , thumbnails: product.frontmatter.thumbnails , price: product.frontmatter.price}} />

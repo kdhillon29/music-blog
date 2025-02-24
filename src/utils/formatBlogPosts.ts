@@ -13,7 +13,7 @@ export function formatBlogPosts(
     category = "",
   } = {}
 ) {
-  console.log("filteredPosts", start, end, author);
+  // console.log("filteredPosts", start, end, author);
   const filteredPosts = posts.reduce(
     (acc: CollectionEntry<"posts">[], post: CollectionEntry<"posts">) => {
       // const { date, draft=false } = post.data;
@@ -27,7 +27,7 @@ export function formatBlogPosts(
     []
   );
   if (author) {
-    console.log("filteredPosts are", filteredPosts);
+    // console.log("filteredPosts are", filteredPosts);
     return filteredPosts.filter((post) => post.data.author.id === author);
   }
   if (category) {

@@ -1,18 +1,19 @@
 ---
 // import "@fontsource/cabin";
 import "../styles/global.css";
+import "astro-breadcrumbs/breadcrumbs.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter, fade, slide } from "astro:transitions";
 import type { CollectionEntry } from "astro:content";
 import Seo from "../components/Seo.astro";
-import MobileNav from "../components/MobileNav";
-import Logo from "../components/Logo.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
-import CartNav from "../components/CartNav";
-import HeaderLink from "../components/HeaderLink.astro";
-import { Icon } from "astro-icon/components";
 
+// import BreadCrumbs from "../components/BreadCrumbs.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import HeaderMobile from "../components/HeaderMobile.astro";
+
+const currentPath = Astro.url.pathname;
+console.log("currentPath is", currentPath);
 export interface Props {
   title?: string;
   description?: string;
@@ -68,25 +69,29 @@ const {
   </head>
 
   <body class="min-h-screen bg-neutral-100 dark:bg-[#061723]">
-    <div class="hidden md:block"><Header /></div>
-    <div
-      class="md:hidden flex justify-between items-center gap-6 p-3 md:px-24 shadow-md sticky top-0 z-100
-    bg-neutral-100 dark:bg-[#050f0f]/80 max-sm:px-2 max-sm:py-5 w-full"
-    >
-      <Logo />
+    <Header />
+    <HeaderMobile />
+    <main class="min-h-[90vh]">
       <div
-        class="flex justify-between items-center gap-3 mb-[-10%] shadow-md rounded-xl"
+        class="ml-auto w-auto md:w-1/3 p-2 shadow-md text-xs md:text-base font-semibold
+         bg-neutral-100 text-zinc-700 rounded-md dark:text-white dark:bg-[#061723]"
       >
-        <ThemeToggle />
-        <HeaderLink href="/search">
-          <Icon name="mdi:search" size={32} color="teal" class="rounded-full" />
-        </HeaderLink>
+        <Breadcrumbs separatorAriaHidden={false}>
+          <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </Breadcrumbs>
       </div>
-
-      <CartNav client:load />
-      <MobileNav client:load />
-    </div>
-    <main class="min-h-[70vh]">
       <div transition:animate={fade({ duration: ".8s" })}>
         <slot />
       </div>

@@ -8,7 +8,7 @@ import Layout from "../../layouts/Layout.astro";
 import PostList from "../../components/PostList.astro";
 import Main from "../../components/Main.astro";
 
-const { slug } = Astro.params;
+// const { slug } = Astro.params;
 export async function getStaticPaths() {
   const authors = await getCollection("authors");
   const allPosts = await getCollection("posts");

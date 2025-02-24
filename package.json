@@ -22,6 +22,7 @@
     "@nanostores/preact": "^0.5.2",
     "@tailwindcss/vite": "^4.0.5",
     "astro": "^5.2.5",
+    "astro-breadcrumbs": "^3.3.1",
     "astro-icon": "^1.1.5",
     "astro-pagefind": "^1.8.0",
     "auth-astro": "^4.2.0",

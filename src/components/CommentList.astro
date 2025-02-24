@@ -12,7 +12,7 @@ const comments = await db
   .from(Comment)
   .where(eq(Comment.postSlug, postSlug))
   .orderBy(desc(Comment.createdAt));
-console.log("comments", comments);
+// console.log("comments", comments);
 ---
 
 <div id="comments" class="space-y-4">
