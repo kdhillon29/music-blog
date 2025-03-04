@@ -51,7 +51,7 @@ function MobileNav(){
                 </ul>
             </div>
             <div class="fixed z-30 left-0 top-0 bottom-0 w-60 bg-white dark:bg-gray-600" ref={addRef}>
-                <ul class="flex items-start pl-6 pt-6 flex-col space-y-8">
+                <ul class="flex items-end pl-6 pt-6 flex-col space-y-8">
                     <li class="mb-5">
                         <a class="text-gray-900 dark:text-white" onClick={()=>setIsOpen(false)}>
                             <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="currentColor" fill-rule="evenodd"/></svg>
@@ -60,8 +60,8 @@ function MobileNav(){
                     <li><a href="/" class=" font-medium text-xl text-gray-600 dark:text-white hover:text-gray-900 hover:font-semibold">Home</a></li>
                     <li><a href="/blog" class=" font-medium text-xl text-gray-600 dark:text-white hover:text-gray-900 hover:font-semibold">Blog</a></li>
                     <li><a href="/shop" class=" font-medium text-xl text-gray-600 dark:text-white hover:text-gray-900 hover:font-semibold">Shop</a></li>
+                    <li><a href="/contact" astro-data-reload class=" font-medium text-xl text-gray-600 dark:text-white hover:text-gray-900 hover:font-semibold">Contact</a></li>
                     <li><a href="/about" class=" font-medium text-xl text-gray-600 dark:text-white hover:text-gray-900 hover:font-semibold">About</a></li>
-                    <li><a href="/search" astro-data-reload class=" font-medium text-xl text-gray-600 dark:text-white hover:text-gray-900 hover:font-semibold">Search</a></li>
                     {/* <li> <HeaderLink href="/search">Search</HeaderLink></li> */}
                     {/* <ThemeToggle/>   */}
                 </ul>

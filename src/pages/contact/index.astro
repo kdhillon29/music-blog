@@ -1,0 +1,16 @@
+---
+import { db } from "astro:db";
+import ContactForm from "../../components/ContactForm.astro";
+// import ContactGrid from "../components/ContactGrid.astro";
+import { Contact } from "astro:db";
+import Main from "../../components/Main.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const contacts = await db.select().from(Contact);
+---
+
+<Layout title="Contact Me" description="country music contact page">
+  <Main>
+    <ContactForm />
+  </Main>
+</Layout>
