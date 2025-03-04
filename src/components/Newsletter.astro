@@ -15,7 +15,7 @@
       aria-required="true"
       placeholder="Enter your Email"
       id="email"
-      class="bg-neutral-300 :focus:border-teal-500 text-zinc-600 max-sm:w-2/3 shadow-sm text-neutral-200 rounded-lg md:w-full p-2 md:px-4 md:text-lg"
+      class="bg-neutral-300 :focus:border-teal-500 max-sm:w-2/3 shadow-sm text-neutral-200 rounded-lg md:w-full p-2 md:px-4 md:text-lg"
     />
 
     <button
@@ -28,16 +28,16 @@
   </form>
 </div>
 
-<script>
+<script is:inline data-astro-rerun>
   window.onload = () => {
     console.log("newsletter script");
-    function validateEmail(email: string) {
+    function validateEmail(email) {
       const re =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     }
     const newsletterBtn = document.querySelector("#newsletterBtn");
-    const email = document.querySelector("#email") as HTMLInputElement;
+    const email = document.querySelector("#email");
     newsletterBtn?.addEventListener("click", () => {
       console.log("clicked");
       console.log(email.value);
